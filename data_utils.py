@@ -182,7 +182,8 @@ def data_to_token_ids(data_path, target_path, vocab,
       except:
         return
       with gfile.GFile("%s_%s" % (target_path, len_d + len_q), mode="w") as tokens_file:
-        tokens_file.write(results)
+        for result in results:
+            tokens_file.write(result)
 
 def get_all_context(dir_name, context_fname):
   context = ""
